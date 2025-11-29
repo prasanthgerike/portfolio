@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seethapi Manohar Reddy | Senior Systems Engineer & MEAN Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Seethapi Manohar Reddy – Senior Systems Engineer and MEAN Stack Developer."
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      /* ChatGPT-like minimal palette */
+      --bg: #f7f7f8;              /* page background */
+      --bg-card: #ffffff;         /* cards / panels */
+      --bg-soft: #f2f2f3;         /* subtle sections */
+      --accent: #10a37f;          /* primary green */
+      --accent-soft: rgba(16, 163, 127, 0.08);
+      --accent-2: #0f766e;        /* darker accent */
+      --text-main: #111827;       /* main text */
+      --text-soft: #6e6e80;       /* muted text */
+      --border-subtle: #e5e5e7;
+      --radius-lg: 14px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 8px 20px rgba(15, 23, 42, 0.06);
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* NAVBAR – simple, flat */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(247, 247, 248, 0.92);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #d4d4d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #111827;
+      background: #ffffff;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .logo-text span:first-child {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: #d4d4d8;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid #d4d4d8;
+      background: #ffffff;
+      color: #3f3f46;
+      transition: all var(--transition-fast);
+    }
+
+    .nav-cta a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(16, 163, 127, 0.12);
+    }
+
+    /* HERO – clean, centered */
+    .hero {
+      padding: 2.5rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 163, 127, 0.26);
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #16a34a;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .hero-title span {
+      color: #000000;
+    }
+
+    .hero-subtitle {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: var(--radius-pill);
+      background: #e5e7eb;
+      border: 1px solid #e5e7eb;
+      font-size: 0.78rem;
+      color: #374151;
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(16, 163, 127, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-2);
+      box-shadow: 0 12px 26px rgba(15, 118, 110, 0.2);
+    }
+
+    .btn-ghost {
+      border: 1px solid #d4d4d8;
+      background: #ffffff;
+      color: #3f3f46;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(16, 163, 127, 0.12);
+    }
+
+    .hero-aside {
+      position: relative;
+    }
+
+    .hero-card {
+      padding: 1.1rem 1.1rem 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .hero-card-sub {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .stat-pill {
+      padding: 0.5rem;
+      border-radius: 10px;
+      background: #f9fafb;
+      border: 1px solid #e5e5e7;
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .stat-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #e5e5e7;
+      background: #f4f4f5;
+      font-size: 0.7rem;
+      color: #4b5563;
+    }
+
+    .hero-ribbon {
+      margin-top: 0.5rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid #e5e5e7;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .hero-ribbon span strong {
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 2.7rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 1.7rem;
+    }
+
+    .section-kicker {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 16px;
+      top: 1.6rem;
+      bottom: 1.6rem;
+      width: 2px;
+      background: #e5e5e7;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 2.4rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0.2rem;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: 9px;
+      top: 0.35rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.18);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: #111827;
+    }
+
+    .timeline-company {
+      font-size: 0.84rem;
+      color: var(--accent-2);
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.28rem;
+      margin: 0.35rem 0 0.5rem;
+    }
+
+    .tag-soft {
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      font-size: 0.7rem;
+      color: #047857;
+    }
+
+    .timeline ul {
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .timeline ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* CARDS / GRID */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      position: relative;
+      padding: 1rem 1rem 0.9rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(16, 163, 127, 0.5);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      background: #fdfdfd;
+    }
+
+    .card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* SKILLS */
+    .skills-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 1.2rem;
+    }
+
+    .skill-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .skill-tag {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      font-size: 0.8rem;
+      position: relative;
+      cursor: default;
+      color: #047857;
+    }
+
+    .skill-meter {
+      width: 100%;
+      height: 5px;
+      border-radius: 999px;
+      background: #e4e4e7;
+      overflow: hidden;
+      margin-top: 0.25rem;
+    }
+
+    .skill-meter-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(to right, var(--accent), var(--accent-2));
+      width: var(--level, 80%);
+    }
+
+    /* Tooltip for skills */
+    .skill-tag::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: 130%;
+      transform: translateX(-50%) translateY(4px);
+      min-width: 220px;
+      max-width: 260px;
+      padding: 0.55rem 0.65rem;
+      border-radius: 0.7rem;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.45);
+      opacity: 0;
+      pointer-events: none;
+      white-space: normal;
+      z-index: 40;
+      transition: opacity var(--transition-fast), transform var(--transition-fast);
+      border: 1px solid #27272a;
+    }
+
+    .skill-tag::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 120%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: #111827;
+      transform-origin: center;
+      rotate: 45deg;
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+      z-index: 39;
+      border-left: 1px solid #27272a;
+      border-top: 1px solid #27272a;
+    }
+
+    .skill-tag:hover::after,
+    .skill-tag:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .skill-tag:hover::before,
+    .skill-tag:focus-visible::before {
+      opacity: 1;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .cert-pill {
+      display: block;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px dashed var(--border-subtle);
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast),
+        transform var(--transition-fast), box-shadow var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .cert-pill strong {
+      display: block;
+      font-size: 0.82rem;
+      color: #111827;
+      margin-bottom: 0.1rem;
+    }
+
+    .cert-pill:hover {
+      border-color: rgba(16, 163, 127, 0.6);
+      background: #f0fdf4;
+      color: var(--accent-2);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(16, 163, 127, 0.16);
+    }
+
+    /* EDUCATION */
+    .edu-card {
+      padding: 1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 1.1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .edu-main {
+      font-size: 0.9rem;
+    }
+
+    .edu-main h3 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #111827;
+    }
+
+    .edu-main p {
+      color: var(--text-soft);
+      font-size: 0.85rem;
+    }
+
+    .edu-badge {
+      padding: 0.4rem 0.8rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(16, 163, 127, 0.6);
+      font-size: 0.8rem;
+      color: var(--accent-2);
+    }
+
+    /* CONTACT */
+    .contact-card {
+      padding: 1.2rem 1.2rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 1.3rem;
+      align-items: center;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .contact-details p {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-details a {
+      color: var(--accent-2);
+      font-weight: 500;
+    }
+
+    .contact-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .contact-badge {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      font-size: 0.78rem;
+      color: #4b5563;
+    }
+
+    .contact-cta {
+      text-align: right;
+    }
+
+    .contact-cta p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 1.6rem 0 2rem;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      background: #f9fafb;
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-aside {
+        order: -1;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cert-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skills-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .timeline {
+        padding: 1.2rem 1rem;
+      }
+
+      .timeline::before {
+        left: 12px;
+      }
+
+      .timeline-item {
+        padding-left: 2.1rem;
+      }
+
+      .timeline-marker {
+        left: 5px;
+      }
+
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-list {
+        grid-template-columns: 1fr;
+      }
+
+      .edu-card {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="logo">
+          <div class="logo-mark">SM</div>
+          <div class="logo-text">
+            <span>Manohar Reddy</span>
+            <span>Senior Systems Engineer · MEAN Stack</span>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="mailto:manoharseethapi@gmail.com">Email</a>
+          <a
+            href="https://www.linkedin.com/in/manohar-reddy-seethapi-102854353?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Available for opportunities · Bengaluru, India</span>
+            </div>
+            <h1 class="hero-title">
+              Hi, I’m <span>Seethapi Manohar Reddy</span>
+            </h1>
+            <p class="hero-subtitle">
+              Senior Systems Engineer with 4+ years of experience building scalable, high-performance
+              MEAN stack and frontend applications. I focus on clean UI/UX, automation, and
+              performance optimization to create reliable tools that solve real business problems.
+            </p>
+            <div class="hero-highlights">
+              <div class="chip">
+                <span class="chip-dot"></span>
+                <span>MEAN Stack · Angular · Node.js</span>
+              </div>
+              <div class="chip">
+                <span class="chip-dot"></span>
+                <span>Automation & Tooling for Citi Bank</span>
+              </div>
+              <div class="chip">
+                <span class="chip-dot"></span>
+                <span>Production-grade dashboards & workflows</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary"> View Projects </a>
+              <a href="#contact" class="btn-ghost"> Contact Me </a>
+            </div>
+          </div>
+
+          <aside class="hero-aside">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div>
+                  <div class="hero-card-title">Profile Snapshot</div>
+                  <div class="hero-card-sub">Senior Systems Engineer · Infosys</div>
+                </div>
+                <div class="tag">4+ years experience</div>
+              </div>
+
+              <div class="hero-stat-grid">
+                <div class="stat-pill">
+                  <span class="stat-label">Primary Stack</span>
+                  <span class="stat-value">MEAN</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Domain</span>
+                  <span class="stat-value">Banking (Citi)</span>
+                </div>
+                <div class="stat-pill">
+                  <span class="stat-label">Location</span>
+                  <span class="stat-value">Bengaluru</span>
+                </div>
+              </div>
+
+              <div class="hero-tags">
+                <span class="tag">Angular</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">HTML · CSS · JS · Bootstrap</span>
+                <span class="tag">UI/UX & Responsive Design</span>
+              </div>
+
+              <div class="hero-ribbon">
+                <span>🏆 <strong>Client Awards</strong> – Best Employee of the Quarter & Best Team Player</span>
+                <span>📜 <strong>Certified</strong> in GenAI, Java, Spring Microservices, GCP & more</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">Who I am</h2>
+            <p class="section-subtitle">
+              Senior Systems Engineer with strong ownership over end-to-end delivery, from requirements
+              and design to deployment and production support. I enjoy turning complex workflows into
+              intuitive web applications and automation tools.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Experience</div>
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">
+              Working with Infosys on high-impact tools and automation for a global banking client.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <!-- Senior Systems Engineer -->
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">Senior Systems Engineer</div>
+                  <div class="timeline-company">Infosys · Bengaluru, India</div>
+                </div>
+                <div class="timeline-meta">July 2025 – Present</div>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag-soft">Benchmarking & Market Research</span>
+                <span class="tag-soft">CxO-level Reporting</span>
+              </div>
+              <ul>
+                <li>
+                  Led cross-functional initiatives in benchmarking, market research, and business
+                  planning to support CxO-level decision making.
+                </li>
+                <li>
+                  Gathered and analysed requirements, produced design specifications, and defined test
+                  plans to maintain delivery quality.
+                </li>
+                <li>
+                  Collaborated with architecture teams to align technical deliverables with enterprise
+                  standards and best practices.
+                </li>
+                <li>
+                  Developed, tested, and reviewed code and documentation to deliver reliable, secure
+                  solutions.
+                </li>
+                <li>
+                  Managed implementation and Go-Live activities for smooth production deployments.
+                </li>
+                <li>
+                  Handled production issues end-to-end, ensuring high system availability and
+                  adherence to SLAs.
+                </li>
+                <li>
+                  Conducted knowledge transfer sessions and documented learnings to improve team
+                  efficiency and onboarding.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Systems Engineer -->
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-header">
+                <div>
+                  <div class="timeline-role">Systems Engineer</div>
+                  <div class="timeline-company">Infosys · Bengaluru, India</div>
+                </div>
+                <div class="timeline-meta">October 2021 – June 2025</div>
+              </div>
+              <div class="timeline-tags">
+                <span class="tag-soft">System Performance</span>
+                <span class="tag-soft">Stakeholder Management</span>
+                <span class="tag-soft">Documentation</span>
+              </div>
+              <ul>
+                <li>
+                  Leveraged emerging technologies to improve system performance and user experience
+                  while meeting tight project timelines.
+                </li>
+                <li>
+                  Coordinated with managers to plan work schedules and ensure timely delivery of
+                  milestones.
+                </li>
+                <li>
+                  Contributed to strategic planning for performance improvements and operational
+                  efficiencies, prioritising client needs.
+                </li>
+                <li>
+                  Interacted directly with end users to resolve operational issues and maintain
+                  uninterrupted services.
+                </li>
+                <li>
+                  Monitored project progress, adjusted plans to avoid delays, and maintained detailed
+                  reports and test documentation.
+                </li>
+                <li>
+                  Actively participated in team discussions to identify risks, remove blockers, and
+                  drive effective solutions.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Projects</div>
+            <h2 class="section-title">Key Engagement – Citi Bank (Infosys)</h2>
+            <p class="section-subtitle">
+              Building automation, dashboards and internal tools to streamline banking workflows and
+              reduce manual effort.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-title">Automation & Tooling Platform</div>
+              <div class="card-sub">Citi Bank · Jan 2022 – Present</div>
+              <div class="card-body">
+                Contributed to the design and development of Angular, Node.js and MongoDB-based tools
+                that automate core business processes, significantly reducing manual operations.
+              </div>
+              <div class="card-footer">
+                <span>MEAN · Internal Tools</span>
+                <span>Reduced manual effort</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Downtime Reduction & Legacy Stabilisation</div>
+              <div class="card-body">
+                Provided ongoing support, optimisation and fixes for legacy tools, resolving critical
+                issues and extending tool lifetime, resulting in nearly
+                <strong>30% reduction in downtime</strong>.
+              </div>
+              <div class="card-footer">
+                <span>Production Support</span>
+                <span>+30% uptime</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Compliance Alerts & Onboarding Automation</div>
+              <div class="card-body">
+                Built automated alerts and notification workflows for compliance checks and onboarding
+                status, leading to a <strong>30% improvement in response times</strong> and faster
+                stakeholder action.
+              </div>
+              <div class="card-footer">
+                <span>Automation</span>
+                <span>+30% faster responses</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="height: 1.3rem;"></div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title">Dashboards & Document Workflows</div>
+              <div class="card-body">
+                Implemented document upload/download, data capture, and real-time dashboard features
+                to enhance reporting and support informed decision-making at multiple stakeholder
+                levels.
+              </div>
+              <div class="card-footer">
+                <span>Angular · UI/UX</span>
+                <span>Real-time insights</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-title">Performance, Security & Governance</div>
+              <div class="card-body">
+                Optimised MongoDB schemas and queries for fast data access, integrated role-based
+                access control and authentication, and monitored performance to identify bottlenecks
+                and double load handling capacity. Conducted code reviews and enforced best practices,
+                reducing production bugs by ~25%.
+              </div>
+              <div class="card-footer">
+                <span>RBAC · Optimisation</span>
+                <span>2x load · -25% bugs</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="height: 1.1rem;"></div>
+
+          <div class="card">
+            <div class="card-title">PMO & Stakeholder Management</div>
+            <div class="card-body">
+              Worked closely with cross-functional teams and stakeholders to gather requirements,
+              design and deploy automation solutions. Prepared client reports, managed PMO
+              operations, and ensured that documentation and deliverables were tracked and shared on
+              time.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Skills</div>
+            <h2 class="section-title">Tech & Professional Skills</h2>
+            <p class="section-subtitle">
+              A blend of hands-on full-stack engineering, UI craftsmanship and collaboration with
+              business stakeholders.
+            </p>
+          </div>
+
+          <div class="skills-layout">
+            <div>
+              <div class="skill-group">
+                <div class="skill-group-title">MEAN Stack Development</div>
+                <div class="skill-tags">
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Built internal Citi Bank tools using Angular components, services and reactive forms for onboarding and compliance workflows."
+                  >Angular</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Developed REST APIs in Node.js to power automation, dashboards and background jobs for banking processes."
+                  >Node.js</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Designed MongoDB schemas and optimised queries to handle large onboarding and compliance datasets with low latency."
+                  >MongoDB</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Used Express to structure APIs, middleware and routes, securing endpoints with authentication and RBAC."
+                  >Express</span>
+                </div>
+                <div class="skill-meter" style="--level: 90%;">
+                  <div class="skill-meter-fill"></div>
+                </div>
+              </div>
+
+              <div class="skill-group">
+                <div class="skill-group-title">Frontend & UI/UX</div>
+                <div class="skill-tags">
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Converted business requirements into semantic HTML structures that work well with Angular components."
+                  >HTML</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Created responsive layouts, utility classes and fine-tuned spacing/typography for internal tools dashboards."
+                  >CSS</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Implemented complex client-side logic, form validation and dynamic tables using vanilla JavaScript along with Angular."
+                  >JavaScript</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Used Bootstrap grid and components to quickly scaffold admin-style UIs and then customised them as per client branding."
+                  >Bootstrap</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Ensured tools work well across laptops and different resolutions used by client teams, with mobile-friendly layouts when needed."
+                  >Responsive Web Design</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Focused on clear navigation, reduced clicks for users and clean data visualisation to help PMO and operations teams act faster."
+                  >UI/UX Development</span>
+                </div>
+                <div class="skill-meter" style="--level: 88%;">
+                  <div class="skill-meter-fill"></div>
+                </div>
+              </div>
+
+              <div class="skill-group">
+                <div class="skill-group-title">Integration, Automation & Tools</div>
+                <div class="skill-tags">
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Implemented role-based access control and authenticated routes so only authorised users can access specific Citi Bank tools."
+                  >Security & Access Control</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Integrated internal tools with existing systems and APIs to avoid duplication of data and manual work."
+                  >Tool Integrations</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Automated alerts, notifications and status checks to reduce manual follow-ups and improve SLA adherence."
+                  >Automation</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Used Postman collections to design, test and document REST APIs during development and production support."
+                  >Postman</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Worked with ServiceNow tickets for incident tracking, changes and production issue follow-up."
+                  >ServiceNow</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Tracked user stories, bugs and sprints with JIRA, keeping stakeholders updated on progress and risks."
+                  >JIRA</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Built PMO reports, dashboards and trackers in Excel/Sheets to summarise project health and timelines."
+                  >Excel & Microsoft Tools</span>
+                </div>
+                <div class="skill-meter" style="--level: 85%;">
+                  <div class="skill-meter-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="skill-group">
+                <div class="skill-group-title">Collaboration & Delivery</div>
+                <div class="skill-tags">
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Worked closely with client managers, PMO, architects and fellow developers to align on priorities and solution design."
+                  >Cross-team Collaboration</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Regularly interacted with end users and client stakeholders to clarify requirements and demo new features."
+                  >Client Communication</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Converted high-level business needs into concrete technical tasks, user stories and acceptance criteria."
+                  >Requirement Analysis</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Maintained design docs, runbooks and KT documents to help new team members ramp up quickly."
+                  >Documentation</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Handled production issues, root-cause analysis and fixes while minimising impact on banking operations."
+                  >Production Support</span>
+                </div>
+                <div class="skill-meter" style="--level: 87%;">
+                  <div class="skill-meter-fill"></div>
+                </div>
+              </div>
+
+              <div class="skill-group">
+                <div class="skill-group-title">Other Technologies</div>
+                <div class="skill-tags">
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Explored ways GenAI can support documentation, code assistance and idea generation for internal tools."
+                  >GenAI</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Used Git and GitHub for version control, PR reviews and maintaining clean commit history."
+                  >Git & GitHub</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Applied Java fundamentals in certification tracks and backend logic where required."
+                  >Java</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Studied and implemented microservice concepts with Spring as part of certification and hands-on labs."
+                  >Spring Microservices</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Learnt GCP fundamentals like compute, storage and IAM through certification and practice projects."
+                  >GCP</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Worked with CPQ concepts for configurable products and pricing flows through formal training."
+                  >CPQ</span>
+                  <span
+                    class="skill-tag"
+                    data-tooltip="Understood IoT building blocks and integrations as part of professional IoT certification."
+                  >IoT</span>
+                </div>
+                <div class="skill-meter" style="--level: 80%;">
+                  <div class="skill-meter-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section id="certifications">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Certifications & Awards</div>
+            <h2 class="section-title">Certifications & Recognition</h2>
+            <p class="section-subtitle">
+              A snapshot of formal learning and client-side appreciation that backs my hands-on
+              experience.
+            </p>
+          </div>
+
+          <div class="cert-list">
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1XYNawkvdyrpw6SpeVuWdydCk-_XXqXqR/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Angular Web Developer</strong>
+              Front-end expertise with Angular and modern web practices.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1wdANcaRyO01CABI3kxALTjJufN2dB_wN/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Front-end Web Developer</strong>
+              Strong foundation in HTML, CSS, JavaScript and responsive UI.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1I5KnX-7uUow5HCS7TiWywVO1JWEFTy0a/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Gen AI Certification</strong>
+              Exposure to GenAI capabilities and integration patterns.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1g4nHwhPwh-f1RbOQrWxIubL8ggS6_PzH/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Gen AI Professional Certification</strong>
+              Advanced skills in applying GenAI concepts in real scenarios.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1H9URDwPkVcA69VhJDyQRnFUaaPtss7Yi/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>GCP Certification</strong>
+              Understanding of Google Cloud fundamentals and services.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/12EKUkFWe9h2d9ucW4EcHdJwf1hxGbceU/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>IoT Professional</strong>
+              Knowledge of IoT systems and integrations.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1oD8sH3MSV7m8XsCQlrsX0iIPppL3304a/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>CPQ Developer</strong>
+              Configurable pricing and quotation workflows.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1k-ORXzUNu4A5RlXP7UZ632h_2Xbn6Fyy/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Java Programmer</strong>
+              Core Java programming skills.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1WsT6wai_MI9KIMR7YssFK-HZU-eiaoIv/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Java SE8 Developer</strong>
+              Expertise in Java SE8 features and APIs.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1QDzTuizTGyZKgFK8B6GwICICjSGx4vvK/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Java SE8 Professional</strong>
+              Advanced Java SE8 concepts and best practices.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1Pkhuq3GLf8UWJlZhuLqyBvyYmyhk1OSG/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Java SE11 Developer</strong>
+              Modern Java development with SE11.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1DnTn0rW30hCWiqGtIKsDP3m0gtOIb3gz/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>OCA Java SE8 Programmer</strong>
+              Oracle Certified Associate – Java SE8 Programmer.
+            </a>
+
+            <a
+              class="cert-pill"
+              href="https://drive.google.com/file/d/1GnmPG5gqCb-z-KDXyzagi3bbM0SIohHm/view?usp=drivesdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>Spring Microservices Developer</strong>
+              Building microservices using the Spring ecosystem.
+            </a>
+          </div>
+
+          <div style="height: 1.2rem;"></div>
+
+          <div class="grid-2">
+            <div class="card">
+              <div class="card-title">Best Employee of the Quarter</div>
+              <div class="card-sub">Client Award</div>
+              <div class="card-body">
+                Recognised by the client for consistent delivery, reliability, and ownership in
+                critical initiatives.
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-title">Best Team Player</div>
+              <div class="card-sub">Client Award</div>
+              <div class="card-body">
+                Awarded for collaboration, knowledge sharing and contribution to overall team
+                success.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Education</div>
+            <h2 class="section-title">Academic Background</h2>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-main">
+              <h3>Bachelor of Technology (EEE)</h3>
+              <p>JNTUA College of Engineering, Anantapur · 2021</p>
+            </div>
+            <div class="edu-badge">Score: 70.65%</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Let’s connect</h2>
+            <p class="section-subtitle">
+              Feel free to reach out for opportunities, collaboration or to know more about my work
+              with Infosys and Citi Bank.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-details">
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:manoharseethapi@gmail.com">manoharseethapi@gmail.com</a>
+              </p>
+              <p>
+                <strong>Phone:</strong>
+                <a href="tel:+919912462787">+91 99124 62787</a>
+              </p>
+              <p>
+                <strong>LinkedIn:</strong>
+                <a
+                  href="https://www.linkedin.com/in/manohar-reddy-seethapi-102854353?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Manohar Reddy Seethapi
+                </a>
+              </p>
+              <div class="contact-badges">
+                <span class="contact-badge">Open to MEAN/Angular roles</span>
+                <span class="contact-badge">Bengaluru · Hybrid/Remote</span>
+              </div>
+            </div>
+            <div class="contact-cta">
+              <p>
+                Looking for someone who can own MEAN stack projects end-to-end, drive automation and
+                deliver reliable tools for business teams? Let’s talk.
+              </p>
+              <a href="mailto:manoharseethapi@gmail.com" class="btn-primary"> Email Me </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <span>© <span id="year"></span> Seethapi Manohar Reddy. All rights reserved.</span>
+        <span>Built with HTML & CSS · Minimal, content-first design.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
